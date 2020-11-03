@@ -1,0 +1,2 @@
+D:\Code\VS\test02\Debug\test02.exe
+D:\Code\VS\test02\Debug\test02.pdb

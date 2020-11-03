@@ -1,37 +1,30 @@
 #!/usr/bin/env python3
 # -*- coding: UTF-8 -*-
 
-class UserInfo(object):
-    lv = 5
-
-    def __init__(self, name, age, account):
+class User(object):
+    def __init__(self, name):
         self.name = name
-        self._age = age
-        self.__account = account
 
-    def get_account(self):
-        return self.__account
-
-    @classmethod
-    def get_name(cls):
-        return cls.lv
-
-    @property
-    def get_age(self):
-        return self._age
+    def printUser(self):
+        print('Hello !' + self.name)
 
 
-class UserInfo2(UserInfo):
-    def __init__(self, name, age, account, sex):
-        super(UserInfo2, self).__init__(name, age, account)
-        self.sex = sex
+class UserVip(User):
+    def printUser(self):
+        print('Hello ! 尊敬的Vip用户：' + self.name)
+
+
+class UserGeneral(User):
+    def printUser(self):
+        print('Hello ! 尊敬的用户：' + self.name)
+
+
+def printUserInfo(user):
+    user.printUser()
 
 
 if __name__ == '__main__':
-    userInfo2 = UserInfo2('两点水', 23, 347073565, '男')
-    # 打印所有属性
-    print(dir(userInfo2))
-    # 打印构造函数中的属性
-    print(userInfo2.__dict__)
-    print(UserInfo2.get_name())
-
+    userVip = UserVip('两点水')
+    printUserInfo(userVip)
+    userGeneral = UserGeneral('水水水')
+    printUserInfo(userGeneral)
